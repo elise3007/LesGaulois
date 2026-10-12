@@ -6,12 +6,11 @@ public class Druide {
 
 	private String nom;
 	private int force;
-	private Chaudron chaudron;
+	private Chaudron chaudron = new Chaudron();
 	
 	public Druide(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
-		this.chaudron = new Chaudron(0,0);
 	}
 
 	public String getNom() {
@@ -36,7 +35,7 @@ public class Druide {
 		String nomGaulois = gaulois.getNom();
 		
 		if (contientPotion) {
-			if (nomGaulois == "Obélix") {
+			if (nomGaulois.equals("Obélix") && nomGaulois != null) {
 				parler("Non " + nomGaulois + " Non ! ... Et tu le sais très bien !");
 			} else {
 				int forcePotion = chaudron.prendreLouche();
