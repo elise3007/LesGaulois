@@ -21,18 +21,24 @@ public class Musee {
 	}
 	
 	public String extraireInstructionsOCaml() {
-		String instructions	= "let musee = [";
+		StringBuilder instructions	= new StringBuilder("let musee = [");
 		for (int i = 0 ; i < nbTrophee ; i++) {
 			String gaulois = trophees[i].donnerNom();
 			Equipement equipement = trophees[i].getEquipement();
 			String nomEquipement = equipement.toString();
-			instructions += "\n    " + "\"" + gaulois + "\"" + ", " + "\"" + nomEquipement + "\"";
+			instructions.append("\n    \"");
+			instructions.append(gaulois);
+			instructions.append("\"");
+			instructions.append(", ");
+			instructions.append("\"");
+			instructions.append(nomEquipement);
+			instructions.append("\"");
 			if (i < nbTrophee - 1) {
-				instructions += ";";
+				instructions.append(";");
 			}
 		}
 		
-		instructions += "\n]";
-		return instructions;
+		instructions.append("\n]");
+		return instructions.toString();
 	}
 }
